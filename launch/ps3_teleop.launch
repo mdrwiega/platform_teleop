@@ -1,0 +1,28 @@
+<launch>
+  <!-- Push the left frontal button labeled as 'LB' to activate cmd_vel publishing. -->
+  <node name="platform_teleop_joystick" pkg="platform_teleop" type="platform_teleop_joy" >   
+    <param name="scale_angular_slow" value="0.2"/>
+    <param name="scale_linear_slow" value="0.15"/>
+    <param name="axis_deadman_slow" value="10"/>
+
+    <param name="scale_angular_fast" value="0.8"/>
+    <param name="scale_linear_fast" value="0.4"/>
+    <param name="axis_deadman_fast" value="8"/>
+
+    <param name="scale_angular_precise" value="0.1"/>
+    <param name="scale_linear_precise" value="0.05"/>
+    <param name="axis_deadman_precise" value="11"/>
+
+    <param name="axis_linear" value="1"/>
+    <param name="axis_angular" value="0"/>
+
+    <param name="precise_up" value="4"/>
+    <param name="precise_down" value="6"/>
+    <param name="precise_left" value="5"/>
+    <param name="precise_right" value="7"/>
+
+    <remap from="platform_teleop_joystick/cmd_vel" to="pad_cmd_vel"/>
+  </node>
+
+  <node pkg="joy" type="joy_node" name="joystick"/>
+</launch>
